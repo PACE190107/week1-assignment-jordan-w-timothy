@@ -158,10 +158,10 @@ public class EvaluationService {
 
 		int pointVal = 0;
 		int total = 0;
-		// System.out.println(string);
+
 		// Change string to uppercase
 		String uppercase = string.toUpperCase();
-		// System.out.println(uppercase);
+
 		// Loop through the string
 		for (int i = 0; i <= uppercase.length() - 1; i++) {
 			// System.out.println(uppercase.charAt(i));
@@ -285,7 +285,7 @@ public class EvaluationService {
 			// if it is a 1, then create substring of everything except the first digit
 			tempNumb = numberStr.substring(1);
 			numberStr = tempNumb;
-			// System.out.println(numberStr);
+
 		}
 
 		// check if number is greater or smaller then 10 digits
@@ -457,7 +457,6 @@ public class EvaluationService {
 			char firstVal = splitArr[i].charAt(0);
 			String firstTwoVal = splitArr[i].substring(0, 2);
 			String firstThreeVal = splitArr[i].substring(0, 3);
-			// System.out.println(firstTwoVal);
 
 			// Turn each word in array to piglatin
 
@@ -466,20 +465,20 @@ public class EvaluationService {
 				// move first letter to the end and add ay
 
 				splitArr[i] = splitArr[i].concat(ending);
-				// System.out.println(splitArr[i]);
+
 				// temp = String.join(" ", splitArr);
 
 			} else if (firstTwoVal.equals("th")) {
 				splitArr[i] = splitArr[i].substring(2).concat(firstTwoVal).concat(ending);
-				// System.out.println(splitArr[i]);
+
 				// temp = String.join(" ", splitArr);
 			} else if (firstThreeVal.equals("sch")) {
 				splitArr[i] = splitArr[i].substring(3).concat(firstThreeVal).concat(ending);
-				// System.out.println(splitArr[i]);
+
 				// temp = String.join(" ", splitArr);
 			} else if (firstTwoVal.equals("qu")) {
 				splitArr[i] = splitArr[i].substring(2).concat(firstTwoVal).concat(ending);
-				// System.out.println(splitArr[i]);
+
 				// temp = String.join(" ", splitArr);
 
 			} else {
@@ -517,9 +516,9 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		boolean armStrong = false;
 
-		// System.out.println(input);
+		
 		int length = String.valueOf(input).length();
-		// System.out.println(length);
+		
 
 		int sum = 0;
 		int current = 1;
@@ -527,7 +526,7 @@ public class EvaluationService {
 		int temp = input;
 
 		for (int i = 0; i < length; i++) {
-			// System.out.println(remainder);
+			
 			remainder = temp % 10;
 			System.out.println("remainder: " + remainder);
 			for (int j = 0; j < length; j++) {
@@ -616,56 +615,52 @@ public class EvaluationService {
 		}
 
 		public String rotate(String string) {
-			System.out.println(string);
-			// System.out.println(key);
+
 			String output = "";
 
 			// Create a key for comparing
 			String alpha = "abcdefghijklmnopqrstuvwxyz";
-			// System.out.println("alpha length " + alpha.length());
+
 			String leftOverAlpha = alpha.substring(key);
-			// System.out.println("leftover: " + leftOverAlpha);
+
 			String keyStr = alpha.substring(0, key);
-			// System.out.println(keyStr);
+
 			String cypherStr = leftOverAlpha.concat(keyStr);
-			// System.out.println(cypherStr);
-			// System.out.println("cypher length: " + cypherStr.length());
 
 			boolean isCap;
 
 			String input = string;
 			for (int i = 0; i < input.length(); i++) {
 				// step through each word in array
-				// System.out.println(input.charAt(i));
 
 				// each letter in each word
 				// check if non letter
 				if (input.charAt(i) == '\'' | Character.isWhitespace(input.charAt(i)) | input.charAt(i) == ','
 						| input.charAt(i) == '!' | input.charAt(i) == '.') {
-					// System.out.println("specialcharacter");
+
 					output = output.concat(Character.toString(input.charAt(i)));
-					// System.out.println(output);
+
 				} else if (Character.isDigit(input.charAt(i))) {
 					output = output.concat(Character.toString(input.charAt(i)));
 
 				} else {
-					// System.out.println(input.charAt(i));
+
 					isCap = Character.isUpperCase(input.charAt(i));
-					// System.out.println(isCap);
+
 					char lowercaseChar = Character.toLowerCase(input.charAt(i));
-					// System.out.println(lowercaseChar);
+
 					int tempIndex = alpha.lastIndexOf(lowercaseChar);
-					// System.out.println(tempIndex);
+
 					// get the value at tempIndex in cypher
 					char tempChar = cypherStr.charAt(tempIndex);
-					// System.out.println(tempChar);
+
 					// check if was uppercase if so return to uppercase
 					if (isCap) {
 						tempChar = Character.toUpperCase(tempChar);
 					}
 					// add new char to output string
 					output = output.concat(Character.toString(tempChar));
-					// System.out.println("output: " + output);
+
 				}
 
 			}
@@ -913,11 +908,7 @@ public class EvaluationService {
 	 */
 	public boolean isPangram(String string) {
 		// TODO Write an implementation for this method declaration
-//		System.out.println(string);
-//		char temp = string.charAt(0);
-//		System.out.println(temp);
-//		int ascii = (int)temp;
-//		System.out.println(ascii);
+//		
 
 		// create a key for comparing
 		String alpha = "abcdefghijklmnopqrstuvwxyz";
@@ -935,7 +926,7 @@ public class EvaluationService {
 			for (int i = 0; i < alpha.length(); i++) {
 				// System.out.println(alpha.charAt(i));
 				keyList.add((int) alpha.charAt(i));
-				// System.out.println(keyList);
+
 			}
 
 			// Create a ascii list for the input
@@ -967,7 +958,7 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Temporal getGigasecondDate(Temporal given) {
-		//pair programming
+		// pair programming
 		LocalDateTime newTime = LocalDateTime.of(1, Month.JANUARY, 1, 0, 0, 0);
 		newTime = newTime.withMonth(given.get(ChronoField.MONTH_OF_YEAR));
 		newTime = newTime.withDayOfMonth(given.get(ChronoField.DAY_OF_MONTH));
@@ -977,11 +968,10 @@ public class EvaluationService {
 			newTime = newTime.withHour(given.get(ChronoField.HOUR_OF_DAY));
 			newTime = newTime.withMinute(given.get(ChronoField.MINUTE_OF_HOUR));
 			newTime = newTime.withSecond(given.get(ChronoField.SECOND_OF_MINUTE));
+		} catch (Exception x) {
+
 		}
-		 catch (Exception x) {
-			 
-		 }
-		
+
 		newTime = newTime.plusSeconds(1_000_000_000);
 		return newTime;
 	}
@@ -1075,9 +1065,9 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		boolean isValid = false;
 		int sum = 0;
-		// System.out.println(string);
+
 		String cleanStr = string.replaceAll(" ", "");
-		// System.out.println(cleanStr);
+
 		// check for length 1 or less
 		if (cleanStr.length() <= 1) {
 			// set to invalid
@@ -1187,9 +1177,7 @@ public class EvaluationService {
 		int b = Integer.parseInt(expressionStrList.get(1));
 		solution = (cleanStr.contains("plus")) ? (a + b)
 				: (cleanStr.contains("minus")) ? (a - b)
-				: (cleanStr.contains("multiplied")) ? (a * b) 
-				: (cleanStr.contains("divided")) ? (a / b) 
-				: 0;
+						: (cleanStr.contains("multiplied")) ? (a * b) : (cleanStr.contains("divided")) ? (a / b) : 0;
 
 		return solution;
 	}
